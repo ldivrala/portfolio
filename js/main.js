@@ -609,30 +609,47 @@ function initNavScroll() {
     }
   }
 
-  if (mobileToggle && navMenu) {
-    mobileToggle.addEventListener('click', () => {
-      const isVisible = navMenu.style.display === 'flex';
-      navMenu.style.display = isVisible ? 'none' : 'flex';
-      if (!isVisible) {
-        navMenu.style.flexDirection = 'column';
-        navMenu.style.position = 'absolute';
-        navMenu.style.top = '100%';
-        navMenu.style.left = '0';
-        navMenu.style.width = '100%';
-        navMenu.style.background = 'var(--bg-surface)';
-        navMenu.style.padding = '1.25rem 1.75rem';
-        navMenu.style.borderBottom = '1px solid var(--border-subtle)';
-      }
-    });
+  // Mobile Drawer Navigation Logic
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  const drawerCloseBtn = document.getElementById('mobile-drawer-close');
+  const drawerBackdrop = document.getElementById('mobile-drawer-backdrop');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth < 820) {
-          navMenu.style.display = 'none';
-        }
-      });
-    });
+  function openMobileDrawer() {
+    if (!mobileDrawer) return;
+    mobileDrawer.classList.add('active');
+    mobileDrawer.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('drawer-open');
   }
+
+  function closeMobileDrawer() {
+    if (!mobileDrawer) return;
+    mobileDrawer.classList.remove('active');
+    mobileDrawer.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('drawer-open');
+  }
+
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', openMobileDrawer);
+  }
+  if (drawerCloseBtn) {
+    drawerCloseBtn.addEventListener('click', closeMobileDrawer);
+  }
+  if (drawerBackdrop) {
+    drawerBackdrop.addEventListener('click', closeMobileDrawer);
+  }
+
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeMobileDrawer();
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('active')) {
+      closeMobileDrawer();
+    }
+  });
 }
 
 /* ==========================================================================

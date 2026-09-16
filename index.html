@@ -50,26 +50,74 @@
 
       <!-- Nav Actions: Direct GitHub, LinkedIn, Theme, Resume, CTA -->
       <div class="nav-actions">
-        <a href="https://github.com/ldivrala/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub Profile (@ldivrala)" aria-label="GitHub Profile">
+        <a href="https://github.com/ldivrala/" target="_blank" rel="noopener noreferrer" class="social-icon-btn desktop-action" title="GitHub Profile (@ldivrala)" aria-label="GitHub Profile">
           <i class="fa-brands fa-github"></i>
         </a>
-        <a href="https://www.linkedin.com/in/ldivrala/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn Profile" aria-label="LinkedIn Profile">
+        <a href="https://www.linkedin.com/in/ldivrala/" target="_blank" rel="noopener noreferrer" class="social-icon-btn desktop-action" title="LinkedIn Profile" aria-label="LinkedIn Profile">
           <i class="fa-brands fa-linkedin"></i>
         </a>
         <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
           <i class="fa-solid fa-sun"></i>
         </button>
-        <button type="button" class="btn btn-outline btn-sm open-resume-btn">
+        <button type="button" class="btn btn-outline btn-sm open-resume-btn desktop-action">
           <i class="fa-solid fa-file-lines"></i>
           <span>Resume</span>
         </button>
-        <a href="#contact" class="btn btn-primary btn-sm">
+        <a href="#contact" class="btn btn-primary btn-sm desktop-action">
           <i class="fa-solid fa-paper-plane"></i>
           <span>Let's Talk</span>
         </a>
-        <button type="button" class="mobile-toggle" aria-label="Toggle navigation menu">
+        <button type="button" class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle navigation menu">
           <i class="fa-solid fa-bars"></i>
         </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+      <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop"></div>
+      <div class="mobile-drawer-content">
+        <div class="mobile-drawer-header">
+          <div class="brand-logo">
+            <img src="assets/images/lokendra-shekhawat.jpg" alt="Lokendra Singh Shekhawat" class="brand-avatar">
+            <div class="brand-info">
+              <span class="brand-name">Lokendra</span>
+              <span class="brand-title">Navigation</span>
+            </div>
+          </div>
+          <button type="button" class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close navigation menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <ul class="mobile-nav-menu">
+          <li><a href="#hero" class="mobile-nav-link active"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+          <li><a href="#services" class="mobile-nav-link"><i class="fa-solid fa-layer-group"></i><span>What I Do</span></a></li>
+          <li><a href="#projects" class="mobile-nav-link"><i class="fa-solid fa-shapes"></i><span>Projects</span></a></li>
+          <li><a href="#experience" class="mobile-nav-link"><i class="fa-solid fa-briefcase"></i><span>Experience</span></a></li>
+          <li><a href="#skills" class="mobile-nav-link"><i class="fa-solid fa-code"></i><span>Skills</span></a></li>
+          <li><a href="#credentials" class="mobile-nav-link"><i class="fa-solid fa-certificate"></i><span>Credentials</span></a></li>
+          <li><a href="#contact" class="mobile-nav-link"><i class="fa-solid fa-envelope"></i><span>Contact</span></a></li>
+        </ul>
+
+        <div class="mobile-drawer-footer">
+          <button type="button" class="btn btn-outline open-resume-btn" style="width: 100%; justify-content: center;">
+            <i class="fa-solid fa-file-lines"></i>
+            <span>View Full Resume</span>
+          </button>
+          <a href="#contact" class="btn btn-primary mobile-nav-link" style="width: 100%; justify-content: center;">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span>Let's Talk</span>
+          </a>
+          <div class="mobile-drawer-socials">
+            <a href="https://github.com/ldivrala/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub" aria-label="GitHub Profile">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/ldivrala/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn" aria-label="LinkedIn Profile">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -1371,6 +1419,21 @@
       </div>
 
       <div class="modal-body" style="padding: 1rem;">
+        <div class="resume-mobile-notice">
+          <p style="margin-bottom: 0.65rem; color: var(--text-secondary); font-size: 0.85rem;">
+            <i class="fa-solid fa-mobile-screen"></i> Viewing on mobile? Open or download the PDF directly:
+          </p>
+          <div style="display: flex; gap: 0.65rem; justify-content: center; flex-wrap: wrap;">
+            <a href="assets/docs/Lokendra_Singh_Shekhawat_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span>Open in New Tab</span>
+            </a>
+            <a href="assets/docs/Lokendra_Singh_Shekhawat_Resume.pdf" download class="btn btn-primary btn-sm">
+              <i class="fa-solid fa-download"></i>
+              <span>Download PDF</span>
+            </a>
+          </div>
+        </div>
         <iframe src="assets/docs/Lokendra_Singh_Shekhawat_Resume.pdf" class="resume-iframe" title="Lokendra Singh Shekhawat Resume PDF"></iframe>
       </div>
     </div>
