@@ -30,7 +30,7 @@
       <a href="#hero" class="brand-logo" aria-label="Lokendra Singh Shekhawat Home">
         <img src="assets/images/lokendra-shekhawat.jpg" alt="Lokendra Singh Shekhawat" class="brand-avatar">
         <div class="brand-info">
-          <span class="brand-name">Lokendra Singh Shekhawat</span>
+          <span class="brand-name"><span class="name-full">Lokendra Singh Shekhawat</span><span class="name-short">Lokendra</span></span>
           <span class="brand-title">AI Solutions Architect & Tech Leader</span>
         </div>
       </a>
@@ -1469,5 +1469,21 @@
 
   <!-- Main JavaScript File -->
   <script src="js/main.js"></script>
+<script>
+window.addEventListener('load', () => {
+  const winW = window.innerWidth;
+  const docW = document.documentElement.scrollWidth;
+  const bodyW = document.body.scrollWidth;
+  console.log('DEBUG_WIDTHS: winW=' + winW + ' docW=' + docW + ' bodyW=' + bodyW);
+  const bad = [];
+  document.querySelectorAll('*').forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.right > winW + 1) {
+      bad.push(el.tagName + '.' + el.className + ' (right=' + Math.round(r.right) + ', w=' + Math.round(r.width) + ')');
+    }
+  });
+  console.log('DEBUG_OFFENDING: ' + JSON.stringify(bad.slice(0, 30)));
+});
+</script>
 </body>
 </html>
